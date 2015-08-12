@@ -3,26 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "2DGameYukidarusan", "..\..\WebSites\2DGameYukidarusan\", "{27388BC9-F1D1-4C92-B635-398D1E340DAB}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebSite", "WebSite\", "{B0E8EC27-0F12-45AE-9B03-66DA5E0F8B31}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6"
-		Debug.AspNetCompiler.VirtualPath = "/localhost_49685"
-		Debug.AspNetCompiler.PhysicalPath = "..\..\WebSites\2DGameYukidarusan\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_49685\"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_61080"
+		Debug.AspNetCompiler.PhysicalPath = "WebSite\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_61080\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/localhost_49685"
-		Release.AspNetCompiler.PhysicalPath = "..\..\WebSites\2DGameYukidarusan\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_49685\"
+		Release.AspNetCompiler.VirtualPath = "/localhost_61080"
+		Release.AspNetCompiler.PhysicalPath = "WebSite\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_61080\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "49685"
-		SlnRelativePath = "..\..\WebSites\2DGameYukidarusan\"
-		DefaultWebSiteLanguage = "Visual C#"
+		VWDPort = "61080"
+		SlnRelativePath = "WebSite\"
 	EndProjectSection
 EndProject
 Global
@@ -30,8 +29,8 @@ Global
 		Debug|Any CPU = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{27388BC9-F1D1-4C92-B635-398D1E340DAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{27388BC9-F1D1-4C92-B635-398D1E340DAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0E8EC27-0F12-45AE-9B03-66DA5E0F8B31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0E8EC27-0F12-45AE-9B03-66DA5E0F8B31}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
