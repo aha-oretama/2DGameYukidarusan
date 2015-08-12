@@ -78,6 +78,13 @@
         ctx.drawImage(img_snow, img_snow._x, img_snow._y);
         ctx.drawImage(img_snow_man, img_snow_man._x, img_snow_man._y);
 
+        if (isHit(img_snow, img_snow_man)) {
+
+            ctx.font = "bold 20px '‚l‚r ƒSƒVƒbƒN'";
+            ctx.fillStyle = "red";
+            ctx.fillText("HIT", getCenterPostion(canvas.clientWidth, 140), 160);
+        }
+
         requestId = window.requestAnimationFrame(renderFrame);
     }
 
@@ -89,6 +96,14 @@
     // canvas‚Ì‰EŒÀŠE
     function getRightLimitPostion(containerWidth, itemWidth) {
         return (containerWidth - itemWidth);
+    }
+
+    // “–‚½‚è”»’è
+    function isHit(targetA,targetB) {
+        return (((targetA._x <= targetB._x && targetA.width + targetA._x >= targetB._x)
+            || (targetA._x >= targetB._x && targetB._x + targetB.width >= targetA._x)) 
+            && ((targetA._y <= targetB._y && targetA.height + targetA._y >= targetB._y)
+                || (targetA._y >= targetB._y && targetB._y + targetB.height >= targetA._y)));
     }
 
 })();
