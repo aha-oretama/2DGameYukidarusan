@@ -3,6 +3,13 @@
 
     var LEFT_KEY_CODE = 37;
     var RIGHT_KEY_CODE = 39;
+    var SCREEN_DIVS = 10;
+    var SNOW_IMAGE_SRC = new Array();
+    SNOW_IMAGE_SRC[0] = '/img/snow.png';
+    SNOW_IMAGE_SRC[1] = '/img/sp_snow1.png';
+    SNOW_IMAGE_SRC[2] = '/img/sp_snow2.png';
+    SNOW_IMAGE_SRC[3] = '/img/sp_snow3.png';
+
     var key_value = 0;
 
     //プログラム全体で使用する変数
@@ -37,7 +44,8 @@
 
         ctx = canvas.getContext('2d');
         img_snow = new Image();
-        img_snow.src = '/img/snow.png';
+        img_snow.src = SNOW_IMAGE_SRC[0];
+        img_snow._count = 0;
         img_snow_man = new Image();
         img_snow_man.src = '/img/snow_man.png';
 
@@ -66,6 +74,10 @@
 
         // フレーム内限界判定
         if (canvas.clientHeight < img_snow._y) {
+            img_snow = new Image();
+            img_snow.src = SNOW_IMAGE_SRC[0];
+            img_snow._count = 0;
+            img_snow._x = getInitialXPosition(canvas.clientWidth, img_snow.width );
             img_snow._y = 0;
         }
         if (img_snow_man._x > img_snow_man.right_limit_position) {
@@ -75,15 +87,12 @@
             img_snow_man._x = 0;
         }
 
+        if (isHit(img_snow, img_snow_man)) {
+            doHit();
+        }
+
         ctx.drawImage(img_snow, img_snow._x, img_snow._y);
         ctx.drawImage(img_snow_man, img_snow_man._x, img_snow_man._y);
-
-        if (isHit(img_snow, img_snow_man)) {
-
-            ctx.font = "bold 20px 'ＭＳ ゴシック'";
-            ctx.fillStyle = "red";
-            ctx.fillText("HIT", getCenterPostion(canvas.clientWidth, 140), 160);
-        }
 
         requestId = window.requestAnimationFrame(renderFrame);
     }
@@ -104,6 +113,45 @@
             || (targetA._x >= targetB._x && targetB._x + targetB.width >= targetA._x)) 
             && ((targetA._y <= targetB._y && targetA.height + targetA._y >= targetB._y)
                 || (targetA._y >= targetB._y && targetB._y + targetB.height >= targetA._y)));
+    }
+
+    // 雪の初期位置
+    function getInitialXPosition(containerWidth, itemWidth) {
+        return (containerWidth - itemWidth) * Math.floor(Math.random(Date.now()) * (SCREEN_DIVS+1))/ SCREEN_DIVS;
+    }
+
+    function doHit() {
+        // HITの表示
+        ctx.font = "bold 20px 'ＭＳ ゴシック'";
+        ctx.fillStyle = "red";
+        ctx.fillText("HIT", getCenterPostion(canvas.clientWidth, 140), 160);
+
+        if (img_snow._count != 3) {
+            changeImage();
+        }
+    }
+
+    function changeImage() {
+        var temp_x = img_snow._x;
+        var temp_y = img_snow._y;
+        var temp_count = img_snow._count;
+        img_snow = new Image();
+        switch (temp_count) {
+            case 0:
+                img_snow.src = SNOW_IMAGE_SRC[1];
+                img_snow._count = 1;
+                break;
+            case 1:
+                img_snow.src = SNOW_IMAGE_SRC[2];
+                img_snow._count = 2;
+                break;
+            case 2:
+                img_snow.src = SNOW_IMAGE_SRC[3];
+                img_snow._count = 3;
+                break
+        }
+        img_snow._x = temp_x;
+        img_snow._y = temp_y;
     }
 
 })();
